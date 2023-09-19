@@ -17,8 +17,10 @@ spec:
          image: registry.k8s.io/busybox
          command: ["/bin/sh", "-c", "while true; do env; echo ''; sleep 3; done"]
          envFrom:
-         - configMapRef:
-             name: first-first-config
+         - secretRef:
+            name: secret-23
+        #  - configMapRef:
+        #      name: first-first-config
         #  - name: MYSQL_DB_USER
         #    valueFrom:
         #      configMapKeyRef:
