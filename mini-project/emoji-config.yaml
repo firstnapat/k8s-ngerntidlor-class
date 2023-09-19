@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+   name: emoji-config
+data:
+    WEB_PORT: "8080" 
+    EMOJISVC_HOST: "emoji-tidlor.odde-poc:8081"
+    VOTINGSVC_HOST: "emoji-voting:9000"
+    INDEX_BUNDLE: "dist/index_bundle.js"
+    GRPC_PORT: "9000"
+
+

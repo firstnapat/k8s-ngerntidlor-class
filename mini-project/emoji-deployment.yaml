@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emojivoto-web-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emojivoto-web-deploy
+  template:
+    metadata:
+      labels:
+        app: emojivoto-web-deploy
+    spec:
+      containers:
+      - image: atbb/emojivoto-web:v11
+        name: emojivoto-web
+        envFrom:
+        - configMapRef:
+            name: emoji-config
+         
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: emojivoto-web-service
+spec:
+  selector:
+    app: emojivoto-web-deploy
+  ports:
+  - name: emojivoto-web-deploy
+    port: 8080
+    targetPort: 8080
+    protocol: TCP
