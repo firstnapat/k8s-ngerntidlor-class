@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
    name: first-first-config
 data:
-   MYSQL_DB_USER: user
-   MYSQL_DB_PASS: pass
-   MYSQL_DB_HOST: host
+   MYSQL_DB_USER: "user"
+   MYSQL_DB_PASS: "P@ssw0rd"
+   MYSQL_DB_HOST: "host"
 
