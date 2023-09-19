@@ -16,20 +16,22 @@ spec:
        - name: test-container
          image: registry.k8s.io/busybox
          command: ["/bin/sh", "-c", "while true; do env; echo ''; sleep 3; done"]
-         env:
-         - name: MYSQL_DB_USER
-           valueFrom:
-             configMapKeyRef:
-               name: first-first-config
-               key: MYSQL_DB_USER
-         - name: MYSQL_DB_PASS
-           valueFrom:
-             configMapKeyRef:
-               name: first-first-config
-               key: MYSQL_DB_PASS
-         - name: MYSQL_DB_HOST
-           valueFrom:
-             configMapKeyRef:
-               name: first-first-config
-               key: MYSQL_DB_HOST
+         envFrom:
+         - configMapRef:
+             name: first-first-config
+        #  - name: MYSQL_DB_USER
+        #    valueFrom:
+        #      configMapKeyRef:
+        #        name: first-first-config
+        #        key: MYSQL_DB_USER
+        #  - name: MYSQL_DB_PASS
+        #    valueFrom:
+        #      configMapKeyRef:
+        #        name: first-first-config
+        #        key: MYSQL_DB_PASS
+        #  - name: MYSQL_DB_HOST
+        #    valueFrom:
+        #      configMapKeyRef:
+        #        name: first-first-config
+        #        key: MYSQL_DB_HOST
                
