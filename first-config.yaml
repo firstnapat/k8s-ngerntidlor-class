@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+   name: first-first-config
+data:
+   key1: val1
+   key2: val2
+   key3: val3
+
