@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
  name: first-second-config
 data:
- test.json: |
+ data.json: |
    {
        maxThreadCount: 10,
        repoConfigs: [{

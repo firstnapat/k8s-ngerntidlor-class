@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: first-volume-config-deployment
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     app: first-sample-config
+ template:
+   metadata:
+     labels:
+       app: first-sample-config
+   spec:
+     containers:
+       - name: test-container
+         image: registry.k8s.io/busybox
+         command: ["/bin/sh", "-c", "while true; do env; echo ''; sleep 3; done"]
+         volumeMounts:
+           - name: volume-config
+             mountPath: "/tmp/storage"
+     volumes:
+       - name: volume-config
+         configMap:
+           name: first-second-config
+           items:
+             - key: data.json
+               path: data.json
+
